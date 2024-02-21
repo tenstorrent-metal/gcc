@@ -77,6 +77,9 @@ extern const char *riscv_default_mtune (int argc, const char **argv);
 %{march=*} \
 %{mabi=*} \
 %(subtarget_asm_spec) \
+%{march=rv32iy:-mgrayskull} \
+%{march=rv32iw:-mwormhole} \
+%{march=rv32ik:-mblackhole} \
 %{mgrayskull:-mgrayskull} \
 %{mwormhole:-mwormhole} \
 %{mblackhole:-mblackhole} "
@@ -85,6 +88,9 @@ extern const char *riscv_default_mtune (int argc, const char **argv);
 #define DRIVER_SELF_SPECS					\
 "%{march=*:%:riscv_expand_arch(%*)} "				\
 "%{!march=*:%{mcpu=*:%:riscv_expand_arch_from_cpu(%*)}} "       \
+"%{march=rv32iy:-march=rv32iy -mgrayskull} "			\
+"%{march=rv32iw:-march=rv32iw -mwormhole} "			\
+"%{march=rv32ik:-march=rv32ik -mblackhole} "			\
 "%{mgrayskull:-mgrayskull} "					\
 "%{mwormhole:-mwormhole} "					\
 "%{mblackhole:-mblackhole} "
