@@ -77,7 +77,7 @@ extern const char *riscv_default_mtune (int argc, const char **argv);
 %{march=*} \
 %{mabi=*} \
 %(subtarget_asm_spec) \
-%{mgrayskull:} \
+%{mgrayskull:-mgrayskull} \
 %{mwormhole:-mwormhole} \
 %{mblackhole:-mblackhole} "
 
