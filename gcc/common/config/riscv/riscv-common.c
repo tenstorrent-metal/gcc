@@ -237,7 +237,7 @@ riscv_subset_list::lookup (const char *subset, int major_version,
 static const char *
 riscv_supported_std_ext (void)
 {
-  return "mafdqlcbjtpvnywk";
+  return "mafdqlcbjtpvnywu";
 }
 
 /* Parsing subset version.
@@ -647,6 +647,7 @@ static const riscv_ext_flag_table_t riscv_ext_flag_table[] =
   {"c", &gcc_options::x_target_flags, MASK_RVC},
   {"y", &gcc_options::x_target_flags, MASK_RVC},
   {"w", &gcc_options::x_target_flags, MASK_RVC},
+  {"u", &gcc_options::x_target_flags, MASK_RVC},
   {NULL, NULL, 0}
 };
 

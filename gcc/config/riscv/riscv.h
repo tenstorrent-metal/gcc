@@ -60,7 +60,8 @@ extern const char *riscv_default_mtune (int argc, const char **argv);
 	   "  %{!mcpu=*:-mtune=%(VALUE)}"				\
 	   "  %{mcpu=*:-mtune=%:riscv_default_mtune(%* %(VALUE))}}" },	\
   {"arch", "%{!march=*:"						\
-	   "  %{!mcpu=*:-march=%(VALUE)}"				\
+	/* "  %{!mcpu=*:-march=%(VALUE)}"			*/      \
+	   "  %{!mcpu=*:-march=rv32i}"			        	\
 	   "  %{mcpu=*:%:riscv_expand_arch_from_cpu(%* %(VALUE))}}" },	\
   {"abi", "%{!mabi=*:-mabi=%(VALUE)}" }, \
 
