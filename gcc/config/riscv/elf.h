@@ -28,7 +28,17 @@ along with GCC; see the file COPYING3.  If not see
 #define LIB_SPEC "--start-group -lc %{!specs=nosys.specs:-lgloss} --end-group"
 
 #undef  STARTFILE_SPEC
-#define STARTFILE_SPEC "crt0%O%s crtbegin%O%s"
+#define STARTFILE_SPEC "%{march=rv32iy:rv32iy/ilp32/crt0%O%s; \
+                          march=rv32iw:rv32iw/ilp32/crt0%O%s; \
+                          march=rv32iu:rv32iu/ilp32/crt0%O%s; \
+                                      :crt0%O%s} \
+                        %{march=rv32iy:rv32iy/ilp32/crtbegin%O%s; \
+                          march=rv32iw:rv32iw/ilp32/crtbegin%O%s; \
+                          march=rv32iu:rv32iu/ilp32/crtbegin%O%s; \
+                                      :crtbegin%O%s}"
 
 #undef  ENDFILE_SPEC
-#define ENDFILE_SPEC "crtend%O%s"
+#define ENDFILE_SPEC "%{march=rv32iy:rv32iy/ilp32/crtend%O%s; \
+                        march=rv32iw:rv32iw/ilp32/crtend%O%s; \
+                        march=rv32iu:rv32iu/ilp32/crtend%O%s; \
+                                    :crtend%O%s}"
